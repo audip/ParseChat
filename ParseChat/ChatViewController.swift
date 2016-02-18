@@ -42,7 +42,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 if let messages = messages {
                     self.messagesList = messages
                     for message in messages {
-                        print("Message: \(message["text"]) + User: \(message["user"])")
+                        print("Message: \(message["text"]) + User: \(message["User"])")
                     }
                 }
                 self.tableView.reloadData()
@@ -64,7 +64,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let msgText = messageTextField.text
         if msgText != nil {
             message["text"] = msgText!
-            message["user"] = PFUser.currentUser()?.username
+            message["User"] = PFUser.currentUser()?.username
             message.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
@@ -88,7 +88,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! MessageCell
         
         cell.messageLabel.text = messagesList![indexPath.row]["text"] as? String
-        cell.usernameLabel.text = messagesList![indexPath.row]["user"] as? String
+        cell.usernameLabel.text = messagesList![indexPath.row]["User"] as? String
         
         return cell
     }
