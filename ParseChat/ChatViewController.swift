@@ -32,6 +32,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let query = PFQuery(className: "Message")
         query.whereKey("text", notEqualTo: "")
+        query.includeKey("User")
         query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock {
             (messages: [PFObject]?, error: NSError?) -> Void in
@@ -41,7 +42,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 if let messages = messages {
                     self.messagesList = messages
                     for message in messages {
-                        print("Message: \(message["text"])")
+                        print("Message: \(message["text"]) + User: \(message["user"])")
                     }
                 }
                 self.tableView.reloadData()
@@ -63,7 +64,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let msgText = messageTextField.text
         if msgText != nil {
             message["text"] = msgText!
-            message["user"] = PFUser.currentUser()
+            message["User"] = PFUser.currentUser()
             message.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
@@ -87,6 +88,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! MessageCell
         
         cell.messageLabel.text = messagesList![indexPath.row]["text"] as? String
+        cell.usernameLabel.text = messagesList![indexPath.row]["User"] as? String
         
         return cell
     }
