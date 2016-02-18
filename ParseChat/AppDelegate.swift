@@ -13,13 +13,24 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         Parse.setApplicationId("YpDZrCPA68Phd9FqiVXX1sZ5AgoD5wEk4FMn9p8o",
                                clientKey: "JlqanetJccKLwbduN7YwO7ryU7nCvUsjCThmMOrP")
+        
+        let currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            // Do stuff with the user
+            let vc = storyboard.instantiateViewControllerWithIdentifier("ChatViewController") as UIViewController
+            window?.rootViewController = vc
+        } else {
+            // Show the signup or login screen
+            let vc = storyboard.instantiateInitialViewController()! as UIViewController
+            window?.rootViewController = vc
+        }
         
         return true
     }

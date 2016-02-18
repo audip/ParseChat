@@ -97,7 +97,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="qn7-Yd-DPf" id="9tk-Sa-99j"/>
                         <outlet property="passwordTextField" destination="uZS-4S-Z5C" id="vMe-bC-CZg"/>
-                        <segue destination="YVq-wu-6Vv" kind="modal" identifier="ChatViewSegue" id="fNM-M5-eT5"/>
+                        <segue destination="tIN-jB-zb4" kind="modal" identifier="ChatViewSegue" id="fNM-M5-eT5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,34 +115,62 @@
                     <view key="view" contentMode="scaleToFill" id="bLq-mp-xe1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsi-60-ehk">
+                                <rect key="frame" x="264" y="71" width="36" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="3Lh-xr-kTl"/>
+                                    <constraint firstAttribute="height" constant="30" id="ul7-15-Yzp"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="onSend:" destination="YVq-wu-6Vv" eventType="touchUpInside" id="47K-9d-jOU"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x7r-Xa-d4M">
+                                <rect key="frame" x="20" y="71" width="231" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YQe-xl-tGY"/>
+                                    <constraint firstAttribute="width" constant="231" id="YnO-VZ-gjo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x7r-Xa-d4M" firstAttribute="top" secondItem="1gm-LG-MdF" secondAttribute="bottom" constant="7" id="08o-wH-nVD"/>
+                            <constraint firstItem="Gsi-60-ehk" firstAttribute="centerY" secondItem="x7r-Xa-d4M" secondAttribute="centerY" id="LEl-cz-EHf"/>
+                            <constraint firstItem="x7r-Xa-d4M" firstAttribute="leading" secondItem="bLq-mp-xe1" secondAttribute="leading" constant="20" id="SYT-fD-KqF"/>
+                            <constraint firstItem="Gsi-60-ehk" firstAttribute="leading" secondItem="x7r-Xa-d4M" secondAttribute="trailing" constant="13" id="dXh-kO-WgF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="Wst-Yq-Z20"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="x7r-Xa-d4M" id="f7y-wC-UHl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="np8-6G-nIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="538"/>
+            <point key="canvasLocation" x="1129" y="538"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ZlJ-Xo-zWl">
+        <scene sceneID="oLf-AR-pZL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KJx-TI-13H" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tIN-jB-zb4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m9D-Gn-ZGp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g6u-K2-DM2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="YVq-wu-6Vv" kind="relationship" relationship="rootViewController" id="4af-ly-AoT"/>
+                        <segue destination="YVq-wu-6Vv" kind="relationship" relationship="rootViewController" id="Lot-e8-nxQ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sAE-2t-dY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvJ-fZ-Ikr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="-218"/>
+            <point key="canvasLocation" x="745" y="538"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="fNM-M5-eT5"/>
-    </inferredMetricsTieBreakers>
 </document>
