@@ -14,7 +14,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,11 +37,14 @@ class LoginViewController: UIViewController {
     }
     */
     @IBAction func onSignup(sender: AnyObject) {
-        let user = PFUser()
-        user.email = emailTextField.text
-        user.password = passwordTextField.text
         
-        let alertController = UIAlertController(title: "Username required", message: "No username has been entered", preferredStyle: .Alert)
+        let user = PFUser()
+        
+        if emailTextField.text != nil && passwordTextField.text != nil {
+            user.username = emailTextField!.text
+            user.password = passwordTextField!.text
+            user.email = emailTextField!.text
+        }
         
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
@@ -50,6 +52,8 @@ class LoginViewController: UIViewController {
                 let errorString = error.userInfo["error"] as? NSString
                 print("Error message: \(errorString)")
                 
+                let alertController = UIAlertController(title: "Error.", message: "\(errorString!)", preferredStyle: .Alert)
+
                 // create a cancel action
                 let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
                     // handle cancel response here. Doing nothing will dismiss the view.
@@ -69,6 +73,7 @@ class LoginViewController: UIViewController {
                 }
             } else {
                 //Let them use the app now.
+                print("New user \(user.username) has been created")
             }
         }
     }
@@ -78,16 +83,18 @@ class LoginViewController: UIViewController {
         let email = emailTextField?.text
         let password = passwordTextField?.text
         
-        let alertController = UIAlertController(title: "Username/password required", message: "No username/password has been entered", preferredStyle: .Alert)
-        
         if email != nil && password != nil {
             PFUser.logInWithUsernameInBackground(email!, password: password!){
                 (user: PFUser?, error: NSError?) -> Void in
                 if user != nil {
                     // Log them in
+                    print("User \(email) logged in")
                 } else {
+                    
                     let errorString = error!.userInfo["error"] as? NSString
                     print("Error message: \(errorString)")
+                    
+                    let alertController = UIAlertController(title: "Error.", message: "\(errorString!)", preferredStyle: .Alert)
                     
                     // create a cancel action
                     let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
