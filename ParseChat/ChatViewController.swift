@@ -63,6 +63,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let msgText = messageTextField.text
         if msgText != nil {
             message["text"] = msgText!
+            message["user"] = PFUser.currentUser()
             message.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
