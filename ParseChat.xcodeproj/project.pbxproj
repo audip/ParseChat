@@ -14,6 +14,7 @@
 		AC4B38621C7551350015D9F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4B38601C7551350015D9F3 /* LaunchScreen.storyboard */; };
 		AC4B386A1C75585C0015D9F3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B38691C75585C0015D9F3 /* LoginViewController.swift */; };
 		AC4B386C1C758C340015D9F3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B386B1C758C340015D9F3 /* ChatViewController.swift */; };
+		AC4B386E1C75959D0015D9F3 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B386D1C75959D0015D9F3 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AC4B38631C7551350015D9F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC4B38691C75585C0015D9F3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AC4B386B1C758C340015D9F3 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		AC4B386D1C75959D0015D9F3 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				AC4B38631C7551350015D9F3 /* Info.plist */,
 				AC4B38691C75585C0015D9F3 /* LoginViewController.swift */,
 				AC4B386B1C758C340015D9F3 /* ChatViewController.swift */,
+				AC4B386D1C75959D0015D9F3 /* MessageCell.swift */,
 			);
 			path = ParseChat;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4B386A1C75585C0015D9F3 /* LoginViewController.swift in Sources */,
+				AC4B386E1C75959D0015D9F3 /* MessageCell.swift in Sources */,
 				AC4B386C1C758C340015D9F3 /* ChatViewController.swift in Sources */,
 				AC4B38581C7551350015D9F3 /* AppDelegate.swift in Sources */,
 			);
