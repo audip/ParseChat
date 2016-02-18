@@ -74,6 +74,7 @@ class LoginViewController: UIViewController {
             } else {
                 //Let them use the app now.
                 print("New user \(user.username) has been created")
+                self.performSegueWithIdentifier("ChatViewSegue", sender: self)
             }
         }
     }
@@ -89,6 +90,7 @@ class LoginViewController: UIViewController {
                 if user != nil {
                     // Log them in
                     print("User \(email) logged in")
+                    self.performSegueWithIdentifier("ChatViewSegue", sender: self)
                 } else {
                     
                     let errorString = error!.userInfo["error"] as? NSString
