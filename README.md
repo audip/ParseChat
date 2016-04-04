@@ -22,7 +22,7 @@ The following functionality is complete:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='#' title='Parse Chat Video Walkthrough' width='' alt='Parse Chat Video Walkthrough' />
+<img src='#' title='Parse Chat Video Walkthrough' width='' alt='Coming Soon Parse Chat Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
